@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Folder Include="Features\UserUrl\" />
+    <Folder Include="Features\ShortUrl\" />
   </ItemGroup>
 
 </Project>
