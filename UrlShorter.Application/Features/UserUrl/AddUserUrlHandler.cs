@@ -7,9 +7,9 @@ namespace UrlShorter.Application.Features.UserUrl
 {
     public class AddUserUrlHandler : IRequestHandler<AddUserUrlCommand, OperationResult<Domain.Entities.UserUrl>>
     {
-        private readonly IRepository<Domain.Entities.UserUrl> _repository;
+        private readonly IUserUrlRepository _repository;
 
-        public AddUserUrlHandler(IRepository<Domain.Entities.UserUrl> repository)
+        public AddUserUrlHandler(IUserUrlRepository repository)
         {
             _repository = repository;
         }
@@ -26,13 +26,9 @@ namespace UrlShorter.Application.Features.UserUrl
                     User = new User(request.UserId),
 
                 };
-                await _repository.AddAsync(userUrl,cancellationToken);
-                var result = await _repository.SaveChangesAsync(cancellationToken);
-                if (result > 0)
-                {
-                    return OperationResult<Domain.Entities.UserUrl>.SuccessResult(userUrl);
-                }
-                return OperationResult<Domain.Entities.UserUrl>.FailureResult("Can Not Save");
+                await _repository.AddAsync(userUrl);
+
+                return OperationResult<Domain.Entities.UserUrl>.SuccessResult(userUrl);
             }
             catch (Exception e)
             {

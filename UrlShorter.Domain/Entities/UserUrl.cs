@@ -2,7 +2,6 @@
 
 namespace UrlShorter.Domain.Entities
 {
-    [BsonCollection("userUrls")]
     public class UserUrl:BaseEntity
     {
         public User User { get; set; }

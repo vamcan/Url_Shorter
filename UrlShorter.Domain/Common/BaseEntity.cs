@@ -59,7 +59,7 @@ namespace UrlShorter.Domain.Common
         public DateTime? ModifiedDate { get; set; }
     }
 
-    public abstract class BaseEntity : BaseEntity<int>
+    public abstract class BaseEntity : BaseEntity<Guid>
     {
 
     }

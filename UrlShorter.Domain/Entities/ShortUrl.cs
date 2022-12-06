@@ -2,10 +2,9 @@
 
 namespace UrlShorter.Domain.Entities
 {
-    [BsonCollection("shortUrls")]
     public class ShortUrl : BaseEntity
     {
-        public ShortUrl(int id)
+        public ShortUrl(Guid id)
         {
             Id=id;
         }
