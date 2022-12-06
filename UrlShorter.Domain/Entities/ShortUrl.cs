@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UrlShorter.Domain.Common;
+﻿using UrlShorter.Domain.Common;
 
 namespace UrlShorter.Domain.Entities
 {
+    [BsonCollection("shortUrls")]
     public class ShortUrl : BaseEntity
     {
+        public ShortUrl(int id)
+        {
+            Id=id;
+        }
         public string UrlKey { get; set; }
         public ShortUrlStatus Status { get; set; }
     }
